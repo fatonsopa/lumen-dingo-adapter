@@ -18,7 +18,7 @@
         "illuminate/cookie": "5.7.*",
         "illuminate/routing": "5.7.*",
         "illuminate/http": "5.7.*",
-        "dingo/api": "2.0.0-alpha1"
+        "dingo/api": "2.0.0-alpha2"
     },
     "authors": [
         {
