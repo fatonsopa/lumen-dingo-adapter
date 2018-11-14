@@ -34,4 +34,4 @@ $app->make(Dingo\Api\Routing\Router::class)->version('v1', function ($api) {
 ```
 
 
-This package copy of (https://github.com/krisanalfa/lumen-dingo-adapter).
+This package is copy of (https://github.com/krisanalfa/lumen-dingo-adapter).
