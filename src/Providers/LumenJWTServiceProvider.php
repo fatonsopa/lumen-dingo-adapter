@@ -18,7 +18,7 @@ use Tymon\JWTAuth\Middleware\RefreshToken;
 use Tymon\JWTAuth\Providers\JWT\JWTInterface;
 use Tymon\JWTAuth\Middleware\GetUserFromToken;
 use Illuminate\Session\SessionServiceProvider;
-use Tymon\JWTAuth\Providers\JWTAuthServiceProvider;
+use Tymon\JWTAuth\Providers\LumenServiceProvider as JWTAuthServiceProvider;
 use Tymon\JWTAuth\Facades\JWTAuth as JWTAuthFacade;
 use Tymon\JWTAuth\Facades\JWTFactory as JWTFactoryFacade;
 use Illuminate\Contracts\Routing\ResponseFactory as ResponseFactoryContract;
@@ -88,7 +88,7 @@ class LumenJWTServiceProvider extends ServiceProvider
     protected function registerSessionManager()
     {
         $this->loadComponent(
-            SessionManager::class,
+            [SessionManager::class => 'session'],
             'SessionManager'
         );
     }
@@ -96,7 +96,7 @@ class LumenJWTServiceProvider extends ServiceProvider
     protected function registerSessionStore()
     {
         $this->loadComponent(
-            Store::class,
+            [Store::class => 'session.store'],
             'SessionStore'
         );
     }
@@ -138,7 +138,7 @@ class LumenJWTServiceProvider extends ServiceProvider
     protected function registerCookieComponent()
     {
         $this->loadComponent(
-            CookieJar::class,
+            [CookieJar::class => 'cookie'],
             'CookieJar'
         );
     }
@@ -171,7 +171,7 @@ class LumenJWTServiceProvider extends ServiceProvider
     protected function registerCacheManager()
     {
         $this->loadComponent(
-            CacheManager::class,
+            [CacheManager::class => 'cache'],
             'CacheManager'
         );
     }
@@ -182,7 +182,7 @@ class LumenJWTServiceProvider extends ServiceProvider
     protected function registerMemcachedConnector()
     {
         $this->loadComponent(
-            MemcachedConnector::class,
+            [MemcachedConnector::class => 'memcached.connector'],
             'MemcachedConnector'
         );
     }
@@ -247,7 +247,7 @@ class LumenJWTServiceProvider extends ServiceProvider
     protected function registerBaseJWTAuth()
     {
         $this->loadComponent(
-            TymonJWTAuth::class,
+            [TymonJWTAuth::class => 'tymon.jwt.auth'],
             'JWTAuth'
         );
     }
@@ -258,7 +258,7 @@ class LumenJWTServiceProvider extends ServiceProvider
     protected function registerJwtAuthProvider()
     {
         $this->loadComponent(
-            JWTInterface::class,
+            [JWTInterface::class => 'tymon.jwt.provider.jwt'],
             'JWTAuthProvider'
         );
     }
@@ -354,7 +354,7 @@ class LumenJWTServiceProvider extends ServiceProvider
      * @param array  $bindings
      * @param string $name
      */
-    protected function loadComponent($bindings, $name)
+    protected function loadComponent(array $bindings, $name)
     {
         $aliases = array_values($bindings);
         $abstracts = array_keys($bindings);
