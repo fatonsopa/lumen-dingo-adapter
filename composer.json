@@ -18,7 +18,7 @@
         "illuminate/cookie": "^10.15",
         "illuminate/routing": "^10.15",
         "illuminate/http": "^10.15",
-        "dingo/api": "^3.0"
+        "api-ecosystem-for-laravel/dingo-api": "^4.1"
     },
     "authors": [
         {
@@ -29,3 +29,4 @@
     "minimum-stability": "stable",
     "prefer-dist": true
 }
+ 
