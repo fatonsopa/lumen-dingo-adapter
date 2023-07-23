@@ -4,7 +4,7 @@ Using Dingo + JWT in your Lumen Based Application with no pain.
 ### Installation
 
 ```
-composer require durimjusaj/lumen-dingo-adapter
+composer require fatonsopa/lumen-dingo-adapter
 ```
 
 ### Configuration
